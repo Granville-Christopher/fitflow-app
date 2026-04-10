@@ -26,7 +26,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-br from-[#0a0f0b]/95 from-0% via-[#0a0f0b]/60 via-50% to-green-600/15 to-100%" />
       </div>
 
-      <div className="relative z-10 max-w-[650px] w-full pt-60 md:pt-0">
+      <div className="relative z-10 max-w-[650px] w-full pt-[500px] md:pt-0">
         <div className="inline-flex items-center gap-2 py-1 md:py-2 px-4 rounded-full text-xs md:text-sm font-medium text-green-200 mb-4 bg-white/10 backdrop-blur-xl border border-white/20 shadow-lg animate-fade-in">
           <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-green-400 animate-pulse-dot" />
           <span>500,000+ transformations</span>
