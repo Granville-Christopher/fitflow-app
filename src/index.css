@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply font-body bg-[#0a0f0b] text-green-50 overflow-x-hidden;
+  }
+  /* Focus styles for accessibility */
+  a:focus-visible,
+  button:focus-visible {
+    @apply outline-2 outline-offset-2 outline-green-500;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    @apply bg-gradient-to-br from-green-300 to-green-500 bg-clip-text text-transparent;
+  }
+  .animate-slide-up {
+    @apply opacity-0 translate-y-8;
+    animation: slide-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  .skip-link {
+    @apply fixed -top-96 left-4 z-[9999] px-4 py-3 rounded-xl font-semibold bg-green-500 text-white transition-[top] duration-200 focus:top-4;
+  }
+}
+
+@layer utilities {
+  .animate-on-scroll {
+    @apply opacity-0 translate-y-10 transition-all duration-700 ease-out;
+  }
+  .animate-on-scroll.visible {
+    @apply opacity-100 translate-y-0;
+  }
+}
+
+/* Live workout overlay animations - explicit so they always run */
+@keyframes overlay-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+@keyframes progress-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+@keyframes overlay-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.03); }
+}
+@keyframes overlay-glow {
+  0%, 100% { filter: drop-shadow(0 0 6px rgba(34,197,94,0.5)); }
+  50% { filter: drop-shadow(0 0 16px rgba(34,197,94,0.8)); }
+}
+.hero-overlay-float {
+  animation: overlay-float 2.5s ease-in-out infinite;
+}
+.hero-progress-pulse {
+  animation: progress-pulse 1.8s ease-in-out infinite;
+}
+.hero-overlay-pulse {
+  animation: overlay-pulse 2s ease-in-out infinite;
+}
+.hero-overlay-glow {
+  animation: overlay-glow 2s ease-in-out infinite;
+}
+
+/* Dashboard preview - custom scrollbar to match theme */
+.dashboard-preview-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(34, 197, 94, 0.5) rgba(255, 255, 255, 0.08);
+}
+.dashboard-preview-scroll::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.dashboard-preview-scroll::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 3px;
+}
+.dashboard-preview-scroll::-webkit-scrollbar-thumb {
+  background: rgba(34, 197, 94, 0.4);
+  border-radius: 3px;
+}
+.dashboard-preview-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(34, 197, 94, 0.6);
+}
